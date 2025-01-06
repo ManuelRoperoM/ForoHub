@@ -1,4 +1,4 @@
-package com.alura.forohub;
+package com.alura.forohub.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,6 +8,7 @@ public class ForohubApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ForohubApplication.class, args);
+		System.out.println("Iniciando el proyecto test");
 	}
 
 }
