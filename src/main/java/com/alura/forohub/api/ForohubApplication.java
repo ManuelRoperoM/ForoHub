@@ -8,7 +8,7 @@ public class ForohubApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ForohubApplication.class, args);
-		System.out.println("Iniciando el proyecto test");
+		System.out.println("Iniciando el proyecto other test");
 	}
 
 }
