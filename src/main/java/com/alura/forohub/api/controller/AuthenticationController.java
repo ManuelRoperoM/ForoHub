@@ -34,14 +34,5 @@ public class AuthenticationController {
         var authenticateUser = authenticationManager.authenticate(authToken);
         var JWTtoken = tokenService.generateToken((User) authenticateUser.getPrincipal());
         return ResponseEntity.ok(new DtoJWTToken(JWTtoken));
-        /*System.out.println("Hola desde authentiattion controller");
-        Authentication authToken = new UsernamePasswordAuthenticationToken(dtoAuthenticateUser.email(), dtoAuthenticateUser.password());
-        System.out.println("Email: " + dtoAuthenticateUser.email() + " Password: " + dtoAuthenticateUser.password());
-        System.out.println("Auth token: " + authToken);
-        var authenticateUser = authenticationManager.authenticate(authToken);
-        System.out.println("Authenticate User: " + authenticateUser);
-        var JWTtoken = tokenService.generateToken((User) authenticateUser.getPrincipal());
-        System.out.println("JWTTOKEN: " + JWTtoken);
-        return ResponseEntity.ok(new DtoJWTToken(JWTtoken));*/
     }
 }
