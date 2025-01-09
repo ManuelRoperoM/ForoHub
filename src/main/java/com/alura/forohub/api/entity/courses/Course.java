@@ -17,6 +17,8 @@ public class Course {
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Topic> topics;
 
+    public Course() {}
+
     public List<Topic> getTopics() {
         return topics;
     }

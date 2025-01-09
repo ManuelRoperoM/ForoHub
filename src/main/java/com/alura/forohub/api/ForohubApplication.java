@@ -10,5 +10,4 @@ public class ForohubApplication {
 		SpringApplication.run(ForohubApplication.class, args);
 		System.out.println("Iniciando el proyecto other test");
 	}
-
 }

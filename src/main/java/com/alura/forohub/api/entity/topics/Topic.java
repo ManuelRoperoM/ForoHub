@@ -23,7 +23,9 @@ public class Topic {
     private User user;
     @ManyToOne()
     private Course course;
-    @OneToMany(mappedBy = "topic", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    public Topic() { }
+
+    @OneToMany(mappedBy = "topic", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Response> responses;
 
     public Topic(String title, String message, Date createdAt, String status) {
@@ -31,6 +33,15 @@ public class Topic {
         this.message = message;
         this.createdAt = createdAt;
         this.status = status;
+    }
+
+    public Topic(DtoTopic dtoTopic) {
+        this.title = dtoTopic.title();
+        this.message = dtoTopic.message();
+        this.createdAt = dtoTopic.createdAt();
+        this.status = dtoTopic.status();
+        this.user = dtoTopic.user();
+        this.course = dtoTopic.course();
     }
 
     public String getTitle() {
@@ -87,5 +98,17 @@ public class Topic {
 
     public void setResponses(List<Response> responses) {
         this.responses = responses;
+    }
+
+    public void updateData(DtoUpdateTopic dtoUpdateTopic) {
+        if (dtoUpdateTopic.message() != null) {
+            this.message = dtoUpdateTopic.message();
+        }
+        if (dtoUpdateTopic.title() != null) {
+            this.title = dtoUpdateTopic.title();
+        }
+        if (dtoUpdateTopic.status() != null) {
+            this.status = dtoUpdateTopic.status();
+        }
     }
 }
